@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>InkSeal — Sign PDF Online Free: Add Your Signature to Any PDF Document</title>
+<meta name="description" content="Free PDF signer. Draw, type or upload your signature, place it on any page of your PDF and download the signed copy — privately, in your browser.">
+<link rel="canonical" href="https://inkseal.fixoraa.tech/">
+<meta property="og:title" content="InkSeal — Sign PDF Online Free: Add Your Signature to Any PDF Document">
+<meta property="og:description" content="Free PDF signer. Draw, type or upload your signature, place it on any page of your PDF and download the signed copy — privately, in your browser.">
+<meta property="og:url" content="https://inkseal.fixoraa.tech/">
+<meta property="og:type" content="website">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+<script>pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.worker.min.js';</script>
+<style>
+:root{--pri:#1E40AF;--acc:#EAB308;--bgc:#EFF6FF}
+body{background:var(--bgc);font-family:'Segoe UI',system-ui,sans-serif}
+.pri{background:var(--pri)} .prit{color:var(--pri)}
+.btn{background:var(--pri);color:#fff;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+.btn:hover{opacity:.9} .btn2{background:var(--acc);color:#111;padding:.6rem 1.2rem;border-radius:.6rem;font-weight:600;cursor:pointer;border:none}
+.btn:disabled,.btn2:disabled{opacity:.45;cursor:not-allowed}
+input,select,textarea{border:1.5px solid #cbd5e1;border-radius:.55rem;padding:.55rem .7rem;width:100%;background:#fff;color:#0f172a}
+input[type=file]{padding:.45rem .6rem} input[type=range]{padding:0} input[type=checkbox],input[type=radio]{width:auto}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--pri);border-color:transparent}
+label{font-size:.83rem;font-weight:600;display:block;margin-bottom:.3rem}
+.card{background:#fff;border-radius:1rem;box-shadow:0 8px 30px rgba(15,23,42,.08);padding:1.4rem}
+article p{margin:.7rem 0;line-height:1.75;color:#334155}
+article h2{font-size:1.45rem;font-weight:800;margin:1.6rem 0 .4rem;color:#0f172a}
+.faq{background:#fff;border-radius:.7rem;padding:.9rem 1.1rem;margin:.55rem 0;box-shadow:0 2px 10px rgba(15,23,42,.05)}
+.faq summary{font-weight:700;cursor:pointer}
+table.dt{width:100%;border-collapse:collapse} table.dt th,table.dt td{border:1px solid #e2e8f0;padding:.45rem .6rem;text-align:left;font-size:.9rem}
+table.dt th{background:#f1f5f9}
+.drop{border:2px dashed #94a3b8;border-radius:.8rem;padding:1.1rem;text-align:center;background:#f8fafc}
+canvas.prev{max-width:100%;border:1px solid #e2e8f0;border-radius:.5rem;background:#fff}
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "InkSeal", "url": "https://inkseal.fixoraa.tech/", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "description": "Free PDF signer. Draw, type or upload your signature, place it on any page of your PDF and download the signed copy \u2014 privately, in your browser."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is signing with InkSeal free and unlimited?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 sign as many of your own documents as you like, with no signup, no watermark and no per-document fee. Everything runs in your browser."}}, {"@type": "Question", "name": "Can I sign a page other than the first?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Set the page number before building; the preview shows page one for orientation, and the signature is placed on the page you specify."}}, {"@type": "Question", "name": "What if I have no scanner or printer?", "acceptedAnswer": {"@type": "Answer", "text": "You need neither. Draw your signature with mouse or finger, type it in a handwriting style, or upload a photo of your signature \u2014 then download the signed PDF directly."}}, {"@type": "Question", "name": "Is this the same as a certified digital signature?", "acceptedAnswer": {"@type": "Answer", "text": "No. InkSeal applies your signature image and flattens it into the page \u2014 perfect for everyday forms and agreements. Documents that legally require certificate-based signing should use the platform your counterparty specifies."}}, {"@type": "Question", "name": "Where is my signature stored?", "acceptedAnswer": {"@type": "Answer", "text": "Nowhere. Your signature and document are processed only in your browser's memory and are gone when you close the tab. Nothing is uploaded or saved by the tool."}}, {"@type": "Question", "name": "Can I add the date with my signature?", "acceptedAnswer": {"@type": "Answer", "text": "Yes \u2014 tick the date option and today's date is printed in small type beside the signature, as most paper forms intend."}}]}</script>
+</head>
+<body id="top">
+<header class="sticky top-0 z-40 shadow-md" style="background:#172554">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-3 flex items-center justify-between">
+    <a href="#top" class="text-xl font-extrabold tracking-tight" style="color:#EFF6FF">✒ InkSeal</a>
+    <nav class="flex gap-5 text-sm font-semibold" style="color:#EFF6FF">
+      <a href="#top" class="hover:underline">Home</a>
+      <a href="https://fixoraa.tech" class="hover:underline">More Tools</a>
+    </nav>
+  </div>
+</header>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pt-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <div class="origin-top scale-[0.44] sm:scale-100 shrink-0">
+        <script>
+          atOptions = { 'key' : '4e68ac77881c17fe128a46565d9a4e8c', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+        </script>
+        <script src="https://www.highrevenueformat.com/4e68ac77881c17fe128a46565d9a4e8c/invoke.js"></script>
+      </div>
+    </div>
+  </div>
+</div>
+<main class="mx-auto max-w-6xl px-4 sm:px-6 py-8">
+  <div class="text-center mb-6">
+    <h1 class="text-3xl sm:text-4xl font-extrabold" style="color:#0f172a">Sign PDF Online — Add a Signature Free</h1>
+    <p class="mt-2 text-slate-600 max-w-2xl mx-auto">Print, sign, scan, repeat — that ritual is over. Draw your signature once, or type it in a handwriting style, place it exactly where the document asks, and download a signed PDF in under a minute.</p>
+    <span class="inline-block mt-3 px-3 py-1 rounded-full text-xs font-bold text-white pri">✓ Unlimited Free Usage — No Signup, No Watermark</span>
+    <p class="mt-2 text-xs text-slate-500">🔒 100% private: your file is processed entirely in your browser and never uploaded to any server.</p>
+  </div>
+  <div class="grid md:grid-cols-5 gap-6">
+  <div class="card md:col-span-2 space-y-3">
+    <div class="drop"><label>PDF to sign</label><input id="file" type="file" accept="application/pdf"></div>
+    <div><label>Signature style</label><select id="mode"><option value="draw">Draw it</option><option value="type">Type it</option><option value="upload">Upload image</option></select></div>
+    <div id="drawBox"><label>Draw your signature</label><canvas id="pad" width="520" height="180" style="border:1.5px solid #cbd5e1;border-radius:.55rem;background:#fff;width:100%;touch-action:none"></canvas><button class="btn2 mt-1" onclick="clearPad()">Clear</button></div>
+    <div id="typeBox" style="display:none"><label>Your name</label><input id="tname" type="text" value="Your Name"><label class="mt-2">Font</label><select id="tfont"><option value="italic bold 64px Georgia">Georgia italic</option><option value="64px cursive">Cursive</option><option value="italic 64px 'Comic Sans MS'">Casual</option></select></div>
+    <div id="upBox" style="display:none"><label>Signature image (PNG with transparency is best)</label><input id="sigfile" type="file" accept="image/*"></div>
+    <div class="grid grid-cols-2 gap-3"><div><label>Place on page</label><input id="pnum" type="number" value="1" min="1"></div><div><label>Preset position</label><select id="preset"><option value="br">Bottom right</option><option value="bl">Bottom left</option><option value="bc">Bottom centre</option></select></div></div>
+    <div class="grid grid-cols-3 gap-3"><div><label>X offset %</label><input id="xo" type="range" min="0" max="40" value="0"></div><div><label>Y offset %</label><input id="yo" type="range" min="0" max="40" value="0"></div><div><label>Width (pt)</label><input id="wid" type="number" value="170"></div></div>
+    <div><label><input type="checkbox" id="date"> Add today's date next to the signature</label></div>
+    <button class="btn w-full" id="go" onclick="run()">Sign & Build PDF</button>
+    <button class="btn2 w-full" id="dl" style="display:none">⬇ Download signed PDF</button>
+    <p id="status" class="text-sm font-semibold"></p>
+  </div>
+  <div class="card md:col-span-3">
+    <h3 class="font-bold mb-2">Document preview (first page)</h3>
+    <canvas id="prev" class="prev" width="620" height="800"></canvas>
+    <p class="text-xs text-slate-500 mt-2">The signature is flattened into the downloaded file — it becomes part of the page, not a floating layer.</p>
+  </div></div>
+</main>
+<div class="no-print mx-auto max-w-6xl px-4 sm:px-6 pb-4" role="complementary" aria-label="Advertisement">
+  <div class="mx-auto text-center" style="max-width:728px">
+    <span class="block text-[10px] tracking-[0.18em] uppercase text-slate-400 mb-1.5">Advertisement</span>
+    <div class="flex justify-center overflow-hidden">
+      <script async src="https://js.wpadmngr.com/static/adManager.js" data-admpid="464498"></script>
+    </div>
+  </div>
+</div>
+<section class="mx-auto max-w-4xl px-4 sm:px-6 pb-6">
+  <article>
+  <h2>Signing should take a minute, not a printer</h2>
+<p>The traditional way to sign a PDF is absurd when you say it out loud: print the document, find a pen, sign the paper, find a scanner or photograph the page, convert it back to a PDF, and send a file that looks worse than the one you started with. Every step exists only because the signature was treated as ink instead of information. A digital signature image placed precisely on the page skips the entire relay — and the result is cleaner, because the document itself is never degraded by a print-and-scan round trip.</p>
+<p>InkSeal gives you three ways to create that signature, because people differ. Drawing with a mouse or finger feels most like signing; typing your name in a handwriting style is neatest when drawing feels wobbly; uploading a prepared signature image is best when you already have one you like — perhaps a transparent PNG you keep for exactly this purpose. Whichever you create, you place it once, on the page and in the position the form intends, and download a finished document.</p>
+<h2>Placement: where InkSeal beats guesswork</h2>
+<p>A signature floating in the wrong place looks worse than no signature process at all — it signals carelessness on a document whose whole purpose is care. InkSeal therefore treats placement as a first-class control: choose the page, start from a sensible preset — bottom right is where most forms expect a signature — then nudge horizontally and vertically with sliders and set the width in points. The preview shows the document's first page so you can orient yourself before committing.</p>
+<p>Two finishing details matter. The optional date stamp prints today's date beside the signature in small type, as most paper forms intend. And the signature is flattened into the saved PDF: it becomes part of the page content rather than a movable annotation layer, so it cannot be accidentally dragged, detached or lost when the file passes through other software. What you placed is what every reader, on every device, will see.</p>
+<h2>How to sign a PDF, step by step</h2>
+<p>Load the document first and glance at the preview to confirm it is the right file and to note where the signature line lives. Create your signature — a firm, unhurried draw usually beats a fast scribble, and the Clear button is free, so take two attempts if the first looks like someone else wrote it. Set the page number if the signature belongs beyond page one, choose the preset closest to the target, and adjust width so the signature sits naturally in its space: roughly the width of the signature line is the right instinct.</p>
+<p>Tick the date option if the form has a date field beside the signature, press Sign & Build, and download the signed copy — saved under a new '-signed' name so your unsigned original remains pristine. Open the result once, zoom to the signature, and confirm it sits where you intended. The whole ritual, honestly timed, runs under a minute once your signature style is chosen.</p>
+<h2>Is a drawn signature legally meaningful?</h2>
+<p>In most everyday contexts — internal approvals, school and club forms, tenancy paperwork, freelance agreements, delivery acknowledgements — a signature image applied by the signer is accepted exactly as a wet signature is, because what organisations actually need is visible evidence of assent from the right person. Many jurisdictions recognise electronic signatures broadly for ordinary contracts, while reserving stricter requirements for specific instruments such as property deeds, wills and certain notarised documents.</p>
+<p>Be clear about what InkSeal is not: it is not a cryptographic digital-signature service with certificates, identity verification and tamper-evident audit trails. When a document demands that level — a regulated filing, a high-value contract where the counterparty specifies a signing platform — use the specified platform. For the ninety-five percent of life that simply asks 'please sign and return', a clean signature properly placed on the PDF is precisely what the sender wants, delivered without the print-scan pantomime.</p>
+<h2>Everyday documents that ask for your signature</h2>
+<p>Freelancers sign statements of work, NDAs and invoices-as-agreements weekly. Parents sign school permissions, medical consents and sports waivers. Tenants sign rental agreements and inventory checklists; employees sign offer letters, policy acknowledgements and exit paperwork; club treasurers sign everything. Nearly all of these arrive as PDFs with a dotted line and an unspoken expectation that you own a printer — an assumption that quietly expired years ago for most households.</p>
+<p>Keeping a signature ready is the habit that pays. If you upload-image users create one good transparent signature PNG and store it safely, every future signing becomes a thirty-second task on any device. Draw-users get the same speed from muscle memory: the second signature you draw on a trackpad is always better than the first, and by the fifth it feels like your own hand again.</p>
+<h2>Privacy: your signature is your identity — keep it local</h2>
+<p>Of all the artefacts a person uploads to random websites, a clean image of their signature should top the worry list: it is a reusable proof of identity, and copies have obvious misuse potential. InkSeal's architecture answers that concern structurally. The document and the signature are combined by libraries running inside your own browser tab; neither is transmitted anywhere, and both vanish from memory when the tab closes. The signed copy travels only where you send it.</p>
+<p>That local processing is also why there are no accounts, no stored signature galleries and no 'your documents' cloud folder you never asked for. You bring the file, you bring the signature, the tool joins them on your machine, and everyone goes home. For a task whose entire output is an attestation of who you are, that discretion is not a feature — it is the point.</p>
+<h2>Signature craft: small habits, professional results</h2>
+<p>Draw your signature at the size it will be used: tiny signatures drawn on a big pad shrink into nervous squiggles, so fill the pad generously and let the width setting do the scaling. Sign in one confident motion rather than retracing strokes — retracing reads as forgery practice even when it is only neatness. If your organisation signs many documents, standardise: same signature source, same width, same bottom-right placement, so counterparties recognise your execution block on sight. And preview the signed page at full size once before sending; a signature overlapping the printed name line is the commonest placement fault, and the nudge sliders exist precisely to move it the few points it needs.</p>
+  <h2>Frequently Asked Questions</h2>
+  <details class="faq"><summary>Is signing with InkSeal free and unlimited?</summary><p>Yes — sign as many of your own documents as you like, with no signup, no watermark and no per-document fee. Everything runs in your browser.</p></details>
+<details class="faq"><summary>Can I sign a page other than the first?</summary><p>Yes. Set the page number before building; the preview shows page one for orientation, and the signature is placed on the page you specify.</p></details>
+<details class="faq"><summary>What if I have no scanner or printer?</summary><p>You need neither. Draw your signature with mouse or finger, type it in a handwriting style, or upload a photo of your signature — then download the signed PDF directly.</p></details>
+<details class="faq"><summary>Is this the same as a certified digital signature?</summary><p>No. InkSeal applies your signature image and flattens it into the page — perfect for everyday forms and agreements. Documents that legally require certificate-based signing should use the platform your counterparty specifies.</p></details>
+<details class="faq"><summary>Where is my signature stored?</summary><p>Nowhere. Your signature and document are processed only in your browser's memory and are gone when you close the tab. Nothing is uploaded or saved by the tool.</p></details>
+<details class="faq"><summary>Can I add the date with my signature?</summary><p>Yes — tick the date option and today's date is printed in small type beside the signature, as most paper forms intend.</p></details>
+  </article>
+</section>
+<footer class="mt-6 py-8" style="background:#172554;color:#EFF6FF">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 text-center text-sm">
+    <p class="font-bold text-base">InkSeal</p>
+    <p class="opacity-80 mt-1">Free PDF signer. Draw, type or upload your signature, place it on any page of your PDF and download the signed copy — privately, in your browser.</p>
+    <p class="mt-2"><a href="#top" class="underline">Home</a> · <a href="https://fixoraa.tech" class="underline">More Tools</a></p>
+    <p class="fx-credit" style="text-align:center;font-size:12.5px;opacity:.62;margin:10px auto 2px;letter-spacing:.01em">Made by <a href="https://fixoraa.tech" target="_blank" rel="noopener" style="color:inherit;font-weight:700;text-decoration:underline;text-underline-offset:2px">Fixoraa</a></p>
+  </div>
+</footer>
+<script>
+
+const $=id=>document.getElementById(id);
+function fmtBytes(b){if(b===0)return '0 B';const k=1024,s=['B','KB','MB','GB'];const i=Math.floor(Math.log(b)/Math.log(k));return (b/Math.pow(k,i)).toFixed(i?1:0)+' '+s[i];}
+function setStatus(m,ok){const el=$('status');if(!el)return;el.textContent=m;el.style.color=ok===false?'#dc2626':'inherit';}
+function download(bytes,name,type){const blob=bytes instanceof Blob?bytes:new Blob([bytes],{type:type||'application/pdf'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},800);}
+async function readFile(input){const f=input.files&&input.files[0];if(!f)throw new Error('Please choose a PDF file first.');return {file:f,buf:await f.arrayBuffer()};}
+function showDl(id,bytes,name){const b=$(id);b.style.display='inline-block';b.onclick=()=>download(bytes,name);}
+
+
+let drawing=false; const pad=$('pad'); const pctx=pad.getContext('2d'); pctx.lineWidth=2.6; pctx.lineCap='round'; pctx.strokeStyle='#172554';
+function padPos(e){ const r=pad.getBoundingClientRect(); const t=e.touches?e.touches[0]:e; return [(t.clientX-r.left)*pad.width/r.width,(t.clientY-r.top)*pad.height/r.height]; }
+pad.addEventListener('pointerdown',e=>{drawing=true;const[x,y]=padPos(e);pctx.beginPath();pctx.moveTo(x,y);});
+pad.addEventListener('pointermove',e=>{if(!drawing)return;const[x,y]=padPos(e);pctx.lineTo(x,y);pctx.stroke();});
+window.addEventListener('pointerup',()=>drawing=false);
+function clearPad(){ pctx.clearRect(0,0,pad.width,pad.height); }
+$('mode').addEventListener('change',()=>{ $('drawBox').style.display=$('mode').value==='draw'?'block':'none'; $('typeBox').style.display=$('mode').value==='type'?'block':'none'; $('upBox').style.display=$('mode').value==='upload'?'block':'none'; });
+$('file').addEventListener('change',async()=>{ try{ const{buf}=await readFile($('file')); const doc=await pdfjsLib.getDocument({data:buf.slice(0)}).promise; const p=await doc.getPage(1); const vp=p.getViewport({scale:1.1}); const cv=$('prev'); cv.width=vp.width; cv.height=vp.height; await p.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise; setStatus('Document loaded: '+doc.numPages+' pages.'); }catch(e){ setStatus('⚠ '+(e.message||e),false);} });
+async function sigPNG(){
+  if($('mode').value==='draw'){ return pad.toDataURL('image/png'); }
+  if($('mode').value==='type'){ const c=document.createElement('canvas'); c.width=640; c.height=200; const x=c.getContext('2d'); x.font=$('tfont').value; x.fillStyle='#172554'; x.textAlign='center'; x.fillText($('tname').value||'Signature',320,120); return c.toDataURL('image/png'); }
+  const f=$('sigfile').files[0]; if(!f) throw new Error('Choose a signature image first.');
+  return await new Promise(res=>{ const r=new FileReader(); r.onload=()=>res(r.result); r.readAsDataURL(f); });
+}
+async function run(){
+  const btn=$('go'); btn.disabled=true;
+  try{
+    const {file,buf}=await readFile($('file'));
+    const doc=await PDFLib.PDFDocument.load(buf.slice(0));
+    const pages=doc.getPages();
+    const pnum=Math.min(pages.length,Math.max(1,parseInt($('pnum').value)||1));
+    const page=pages[pnum-1]; const {width,height}=page.getSize();
+    const png=await sigPNG();
+    const img=await doc.embedPng(await (await fetch(png)).arrayBuffer());
+    const w=Math.max(40,parseFloat($('wid').value)||170); const h=w*img.height/img.width;
+    const xo=parseFloat($('xo').value)/100*width, yo=parseFloat($('yo').value)/100*height;
+    let x,y=36+yo;
+    if($('preset').value==='br') x=width-w-48+xo; else if($('preset').value==='bl') x=48+xo; else x=(width-w)/2+xo;
+    page.drawImage(img,{x:x,y:y,width:w,height:h});
+    if($('date').checked){ const fnt=await doc.embedFont(PDFLib.StandardFonts.Helvetica); page.drawText(new Date().toLocaleDateString('en-GB'),{x:x,y:y-14,size:9,font:fnt}); }
+    const bytes=await doc.save();
+    showDl('dl',bytes,file.name.replace(/\.pdf$/i,'')+'-signed.pdf');
+    setStatus('Done ✔ Signature flattened onto page '+pnum+'. Signed copy ready to download.');
+  }catch(e){ setStatus('⚠ '+(e.message||e),false); }
+  btn.disabled=false;
+}
+
+</script>
+</body>
+</html>
